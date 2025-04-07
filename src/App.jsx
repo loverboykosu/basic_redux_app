@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "./actions";
+import { increment, decrement, login } from "./actions";
 function App() {
   const counter = useSelector((state) => state.counter);
   const isLogin = useSelector((state) => state.isLogin);
@@ -14,7 +14,8 @@ function App() {
       <h3>Counter : {counter}</h3>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button>
-      {isLogin ? <h3>ログイン成功</h3> : <h3>ログイン失敗</h3>}
+      {isLogin ? <h3>ログイン成功</h3> : <h3>ログインしてね</h3>}
+      <button onClick={() => dispatch(login())}>ログインorログアウト</button>
     </>
   );
 }
